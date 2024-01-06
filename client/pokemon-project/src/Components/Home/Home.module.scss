@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background: url("../../../assets/fondo2.gif") no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.title {
+  color: ivory;
+  font-size: 3em;
+  transition: all 0.5s;
+}
+
+.title:hover {
+  font-size: 4em;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 90%;
+  height: 50px;
+}
+
+.characters {
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+}

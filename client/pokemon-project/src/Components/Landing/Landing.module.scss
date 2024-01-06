@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom right, black, yellow);
+  padding-top: 60px;
+}
+
+.container3 {
+  margin-bottom: 30px;
+}
+
+.container4 {
+  display: flex;
+  opacity: 0.6;
+  justify-content: end;
+  width: 99vw;
+}
+
+.link {
+  text-decoration: none;
+  color: $white;
+}
+
+.span {
+  display: block;
+  background: linear-gradient(to bottom right, red, $white);
+  color: $black;
+  font-weight: 500;
+  padding: 16px 40px;
+  border: 2px solid $black;
+  border-radius: 300px;
+}
+
+.span:hover {
+  background: linear-gradient(to bottom right, red, $white);
+  border: 2px solid $white;
+}
