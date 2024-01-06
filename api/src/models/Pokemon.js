@@ -3,29 +3,77 @@ const { DataTypes } = require("sequelize");
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define("pokemon", {
-    id: {
-      type: DataTypes.UUID,
-      unique: true,
-      primaryKey: true,
+  sequelize.define(
+    "pokemon",
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: [0, 20],
+        },
+      },
+      image: {
+        type: DataTypes.STRING,
+      },
+      image2: {
+        type: DataTypes.STRING,
+      },
+      hp: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      attack: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      defense: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      speed: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      height: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
+      weight: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        validate: {
+          min: 0,
+          max: 999,
+        },
+      },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    life: {},
-    attack: {},
-    defense: {},
-    speed: {},
-    height: {
-      type: DataTypes.INTEGER,
-    },
-    weight: {
-      type: DataTypes.INTEGER,
-    },
-  });
+    { timestamps: false }
+  );
 };
