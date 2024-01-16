@@ -8,6 +8,7 @@ import style from "./Create.module.scss";
 
 const Create = () => {
   const navigate = useNavigate();
+  const createdPokemon = useSelector((state) => state.createdPokemon);
   const dispatch = useDispatch();
   const MAX_TYPES = 2;
   const options = useSelector((state) => state.types);
@@ -46,7 +47,7 @@ const Create = () => {
   };
 
   function onChangeTypes(e) {
-    const value = e.target.value;
+    let value = e.target.value;
 
     // maximo de types 2
     if (value === "0") return;
@@ -96,8 +97,6 @@ const Create = () => {
     e.preventDefault();
     if (Object.keys(errors).length === 0) {
       dispatch(createPokemon(data));
-      alert("Pokemon creado correctamente!");
-      navigate("/home");
     } else {
       setErrors({
         ...errors,
@@ -113,15 +112,6 @@ const Create = () => {
     <div>
       <div className={style.containerPrincipal}>
         <div className={style.container}>
-          <div>
-            {
-              // Errores de formulario
-              <div className={style.text_error_form}>
-                {Object.keys(errors).length !== 0 &&
-                  "You must complete the form correctly before sending."}
-              </div>
-            }
-          </div>
           {/*NAME*/}
           <div className={style.itemContainer}>
             <div className={style.inputGroup}>
@@ -136,7 +126,7 @@ const Create = () => {
               />
             </div>
             <div className={style.errors}>
-              {errors.name && <p>{errors.name}</p>}
+              {errors.name && <p className={style.danger}>{errors.name}</p>}
             </div>
           </div>
 
@@ -154,7 +144,7 @@ const Create = () => {
               />
             </div>
             <div className={style.errors}>
-              {errors.image && <p>{errors.image}</p>}
+              {errors.image && <p className={style.danger}>{errors.image}</p>}
             </div>
           </div>
           <div className={style.itemContainer}>
@@ -170,7 +160,7 @@ const Create = () => {
               />
             </div>
             <div className={style.errors}>
-              {errors.image2 && <p>{errors.image2}</p>}
+              {errors.image2 && <p className={style.danger}>{errors.image2}</p>}
             </div>
           </div>
 
@@ -190,7 +180,7 @@ const Create = () => {
             <div>
               <p className={style.danger}>{errors.height && errors.height}</p>
             </div>
-            <div>
+            <div className={style.inputGroup}>
               <label className={style.label}>Weight:</label>
               <input
                 className={style.inputShort}
@@ -202,7 +192,7 @@ const Create = () => {
               />
             </div>
             <div className={style.errors}>
-              {errors.weight && <p>{errors.weight}</p>}
+              {errors.weight && <p className={style.danger}>{errors.weight}</p>}
             </div>
           </div>
 
@@ -242,10 +232,8 @@ const Create = () => {
             </div>
           </div>
           <div className={style.containerErrorTypes}>
-            <div className={style.typesNote}>
-              2 types maximum
-              <div className={style.typesError}>{errors.types}</div>
-            </div>
+            <div className={style.typesNote}>2 types maximum</div>
+            <div className={style.typesError}>{errors.types}</div>
           </div>
 
           {/* RANGE INPUT */}
@@ -304,6 +292,15 @@ const Create = () => {
                 <span className={style.labelRangeNumber}>{data.speed}</span>
               </div>
             </form>
+          </div>
+          <div>
+            {
+              // Errores de formulario
+              <div className={style.text_error_form}>
+                {Object.keys(errors).length !== 0 &&
+                  "You must complete the form correctly before sending."}
+              </div>
+            }
           </div>
 
           <div className={style.itemContainer_create}>

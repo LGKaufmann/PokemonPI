@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pokemon from "../Pokemon/Pokemon";
-import { getPokemons } from "../../redux/actions";
+import Order from "../Order/Order";
+import { getPokemons, getTypes } from "../../redux/actions";
 import style from "./Home.module.scss";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
@@ -17,14 +18,20 @@ const Home = () => {
   let end = start + itemsByPage;
   if (end > totalPokemons) end = totalPokemons;
   if (start < 0) start = 0;
+
   useEffect(() => {
-    dispatch(getPokemons());
+    if (pokemons.length === 0) {
+      dispatch(getPokemons());
+    }
   }, []);
 
   return (
     <div className={style.container}>
       <div className={style.title_container}>
         <span className={style.title}>POKEMON API</span>
+      </div>
+      <div>
+        <Order />
       </div>
       <div className={style.characters}>
         {pokemons

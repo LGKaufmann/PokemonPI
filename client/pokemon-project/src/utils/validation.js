@@ -8,7 +8,15 @@ const validation = (inputs) => {
   }
 
   if (!inputs.image) {
-    errors.image = "Image URL is invalid";
+    errors.image = "Image URL is required";
+  } else if (!urlRegExp.test(inputs.image)) {
+    errors.image = "Image URL invalid";
+  }
+
+  if (!inputs.image2) {
+    errors.image2 = "Image URL is required";
+  } else if (!urlRegExp.test(inputs.image2)) {
+    errors.image2 = "Image URL invalid";
   }
 
   if (!inputs.height) {

@@ -14,7 +14,7 @@
   font-size: 22px;
   font-weight: bolder;
   color: white;
-  border: 2px solid yellow;
+  border: 2px solid rgb(170, 97, 186);
   width: 100px;
   height: 35px;
   margin: 10px;
@@ -24,13 +24,17 @@
   margin-right: 5px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(to bottom, black 5%, yellow 100%);
-  background-color: yellow;
+  background: linear-gradient(
+    to bottom,
+    rgb(170, 97, 186) 5%,
+    rgb(206, 156, 86) 100%
+  );
+  background-color: rgb(170, 97, 186);
   border-radius: 4px;
   cursor: pointer;
   color: #ffffff;
   font-family: Trebuchet MS;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   padding: 6px 10px;
   text-decoration: none;
@@ -38,7 +42,11 @@
 }
 
 .button_page:hover {
-  background: linear-gradient(to bottom, yellow 5%, black 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(170, 97, 186) 50%,
+    rgb(206, 156, 86) 100%
+  );
   background-color: yellow;
   transform: scale(1.1);
 }

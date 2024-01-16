@@ -13,6 +13,7 @@ const Landing = () => {
         />
       </div>
       <div className={style.container3}>
+        <p className={style.parrafo}>Descubre todos tus pokemons favoritos!</p>
         <img
           src="../assets/pikachu.gif"
           alt="pikachu"

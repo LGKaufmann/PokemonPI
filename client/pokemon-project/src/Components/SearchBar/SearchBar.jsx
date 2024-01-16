@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetSearchPokemon, searchPokemon } from "../../redux/actions";
+import style from "./SearchBar.module.scss";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -29,18 +30,21 @@ const SearchBar = () => {
     setSearch(e.target.value);
   };
   return (
-    <div>
+    <div className={style.search_bar_conteiner}>
       <div>
         {
-          <div>
-            <form onSubmit={onSubmit}>
+          <div className={style.search_bar_subconteiner}>
+            <form className={style.form_search_bar} onSubmit={onSubmit}>
               <input
+                className={style.searchbar_input_text}
                 type="text"
                 value={search}
                 onChange={onChange}
-                placeholder="insert the pokemon to search..."
+                placeholder="pokemon to search..."
               />
-              <button type="submit">Search</button>
+              <button className={style.searchbar_input_submit} type="submit">
+                🔍
+              </button>
             </form>
           </div>
         }

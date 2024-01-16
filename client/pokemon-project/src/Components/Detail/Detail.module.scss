@@ -2,38 +2,52 @@
   display: flex;
   min-height: 100vh;
   justify-content: center;
-
-  background: linear-gradient(to bottom right, black, yellow);
+  background: linear-gradient(
+    to bottom right,
+    rgb(170, 97, 186),
+    rgb(206, 156, 86)
+  );
 }
 
 .container {
   display: flex;
-  min-width: 90vw;
+  min-width: 96vw;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   margin: 30px;
-  border-radius: 2%;
-  background: url("../../../assets/fondoDetail.gif");
+  border-radius: 6px;
+  background: url("../../../assets/pokedex.png") no-repeat top;
   background-size: cover;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.container_stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container_details {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding-top: 40px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  padding-top: 80px;
+  height: 600px;
   width: 100%;
 }
 
 .details_info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline;
+  position: absolute;
   justify-content: center;
-  width: 270px;
-  padding-top: 10px;
-  margin-right: 500px;
-  margin-left: 200px;
+
+  margin-top: 60px;
+  margin-left: -10px;
 }
 
 .details_stats {
@@ -41,8 +55,35 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
-  height: 500px;
-  padding: 40px;
+  padding: 5px 10px;
+  justify-content: center;
+  height: 450px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(170, 97, 186),
+    rgb(206, 156, 86)
+  );
+  margin-left: 30px;
+  border-radius: 6px;
+  border: 8px solid rgb(206, 156, 86);
+}
+
+.details_info_prin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 300px;
+  height: 450px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(170, 97, 186),
+    rgb(206, 156, 86)
+  );
+  margin-left: 30px;
+  border-radius: 50px 0px 65px 0px;
+  -moz-border-radius: 50px 0px 65px 0px;
+  -webkit-border-radius: 0px 30px 65px 0px;
+  border: 12px solid rgb(206, 156, 86);
 }
 
 .stats_title {
@@ -50,17 +91,18 @@
   font-size: 18px;
   font-weight: bolder;
   text-align: center;
-  padding-top: 5px;
+  padding-top: 10px;
   color: rgb(251, 249, 249);
   text-shadow: 2px 2px 2px #000000;
-  background-color: brown;
-  width: 230px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(170, 97, 186),
+    rgb(206, 156, 86)
+  );
+  width: 240px;
   height: 28px;
   border-radius: 5px;
-}
-
-.ul {
-  list-style: none;
+  letter-spacing: 4px;
 }
 
 .stats_item {
@@ -70,26 +112,25 @@
   padding-top: 5px;
   color: rgb(251, 249, 249);
   text-shadow: 1px 1px 1px #000000;
-  background-color: rgb(251, 2, 2);
-  width: 210px;
+  background-color: rgb(170, 97, 186);
+  width: 230px;
   height: 22px;
   border-radius: 5px;
   margin: 5px;
-  margin-left: -35px;
   padding: 5px;
+  letter-spacing: 4px;
 }
 
 .details_container_title {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 99%;
+  width: 50%;
   height: 40px;
-  background-color: rgb(13, 144, 238);
-  border-radius: 3%;
+
+  border-radius: 6px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin-bottom: 80px;
 }
 
 .details_title {
@@ -97,6 +138,14 @@
   font-weight: bolder;
   color: rgb(251, 249, 249);
   text-shadow: 2px 2px 2px #000000;
+}
+.details_info_types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
 }
 
 .container_loading {
@@ -108,4 +157,15 @@
   height: 100vh;
   font-family: "vt323", monospace;
   font-size: 50px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "VT323", monospace;
+  padding: 5px 0px 5px 10px;
+  text-align: center;
+  color: $black;
+  width: 100%;
+  margin-top: 10px;
 }

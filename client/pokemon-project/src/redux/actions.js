@@ -2,12 +2,17 @@ import axios from "axios";
 import {
   BOTTOMPAGE,
   CREATE_POKEMON,
+  ERROR_NAME_POKEMON,
+  FILTER_POKEMON,
+  FILTER_TYPE,
   FINDPOKEMONS,
   GETPOKEMONDETAILS,
   GETPOKEMONS,
   GETYPES,
   MODIFYPAGE,
+  RESET_FILTER_ORDER,
   RESET_SEARCH_POKEMON,
+  SORT_NAME,
   TOPAGE,
 } from "./action-types";
 
@@ -53,13 +58,17 @@ export function createPokemon(newPokemon) {
         "http://localhost:3001/pokemons",
         newPokemon
       );
-
+      alert("Pokemon creado correctamente!");
       return dispatch({
         type: CREATE_POKEMON,
         payload: data,
       });
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.error);
+      return dispatch({
+        type: ERROR_NAME_POKEMON,
+        payload: false,
+      });
     }
   };
 }
@@ -100,6 +109,37 @@ export function resetSearchPokemon() {
   return {
     type: RESET_SEARCH_POKEMON,
     payload: false,
+  };
+}
+
+// order by NAME
+export function sortName(order) {
+  return {
+    type: SORT_NAME,
+    payload: order,
+  };
+}
+
+// reset Order Filter
+export function resetFilterOrder() {
+  return {
+    type: RESET_FILTER_ORDER,
+    payload: null,
+  };
+}
+
+// Filters
+export function filterByType(type) {
+  return {
+    type: FILTER_TYPE,
+    payload: type,
+  };
+}
+
+export function filterByPokemon(pokemonType) {
+  return {
+    type: FILTER_POKEMON,
+    payload: pokemonType,
   };
 }
 

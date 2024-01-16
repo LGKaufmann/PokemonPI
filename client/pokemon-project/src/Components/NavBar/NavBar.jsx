@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import pikachu from "../../../assets/navbar-pikachu.gif";
-import pokemon from "../../../assets/pokemon.png";
-import styles from "./NavBar.module.scss";
+import raichu from "../../../assets/raichu.gif";
+import style from "./NavBar.module.scss";
 import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = () => {
   return (
-    <div className={styles.nav_bar}>
-      <div className={styles.nav_conteiner}>
-        <div className={styles.nav_menu_izquierda}>
+    <div className={style.nav_bar}>
+      <div className={style.nav_conteiner}>
+        <div className={style.nav_menu_izquierda}>
           <Link to="/">
-            <img src={logo} className={styles.nav_bar_logo} alt="Pokemon App" />
+            <img src={logo} className={style.nav_bar_logo} alt="Pokemon App" />
           </Link>
-          <div className={styles.menu}>
+          <div className={style.menu}>
             <ul>
               <li>
                 <Link to="/home">Home</Link>
@@ -27,12 +27,11 @@ const NavBar = () => {
             </ul>
           </div>
         </div>
-        <div className={styles.nav_menu_derecha}>
-          <img src={pikachu} className={styles.pikachu} alt="Pikachu" />
-          <img src={pokemon} className={styles.pokemon} alt="Pokémon" />
-        </div>
-        <div>
-          <SearchBar />
+        <div className={style.nav_menu_derecha}>
+          <div className={style.searchbar}>
+            <SearchBar />
+          </div>
+          <img src={raichu} className={style.raichu} alt="Raichu" />
         </div>
       </div>
     </div>
