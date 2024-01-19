@@ -16,6 +16,7 @@ import {
   MODIFYPAGE,
   RESET_FILTER_ORDER,
   RESET_SEARCH_POKEMON,
+  SORT_ATTACK,
   SORT_NAME,
   TOPAGE,
 } from "./action-types";
@@ -28,13 +29,14 @@ const initialState = {
   error_msg: "",
   pokemonDetail: {},
   searchPokemon: false,
+  loading: false,
 
   // Order and Filter
   sortNone: true,
   filterTypes: false,
   filterPokemons: false,
-  filterPokemons: false,
   sortAlfabetico: [false, false],
+  sortAttack: [false, false],
 
   // -------------------Pagination---------------------
   currentPage: 1,
@@ -94,6 +96,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemonDetail: action.payload,
+        loading: true,
       };
 
     case FINDPOKEMONS:
@@ -107,8 +110,9 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemonFound: {},
-        notFound: true,
-        searchPokemon: false,
+        pokemonDetail: {},
+        searchPokemon: action.payload,
+        loading: false,
       };
 
     case RESET_FILTER_ORDER:
@@ -120,6 +124,7 @@ function rootReducer(state = initialState, action) {
         filterTypes: false,
         filterPokemons: false,
         sortAlfabetico: [false, false],
+        sortAttack: [false, false],
         totalPokemons: state.pokemons.length,
         currentPage: 1,
         searchPokemon: false,
@@ -151,6 +156,30 @@ function rootReducer(state = initialState, action) {
           action.payload === ASCENDENT,
           action.payload === DESCENDENT,
         ],
+        sortAttack: [false, false],
+        sortNone: false,
+      };
+
+    case SORT_ATTACK:
+      let orderAttack = [...state.filteredPokemons];
+      orderAttack.sort((a, b) => {
+        if (a.attack < b.attack) {
+          return action.payload === ASCENDENT ? -1 : 1;
+        }
+        if (a.attack > b.attack) {
+          return action.payload === DESCENDENT ? -1 : 1;
+        }
+        return 0;
+      });
+
+      return {
+        ...state,
+        filteredPokemons: orderAttack,
+        sortAttack: [
+          action.payload === ASCENDENT,
+          action.payload === DESCENDENT,
+        ],
+        sortAlfabetico: [false, false],
         sortNone: false,
       };
 

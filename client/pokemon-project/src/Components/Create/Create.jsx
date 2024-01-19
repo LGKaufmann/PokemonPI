@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validation from "../../utils/validation";
 import Pokemon from "../Pokemon/Pokemon";
-import { createPokemon, getTypes } from "../../redux/actions";
-import { useNavigate } from "react-router-dom";
+import { createPokemon } from "../../redux/actions";
 import style from "./Create.module.scss";
 
 const Create = () => {
-  const navigate = useNavigate();
-  const createdPokemon = useSelector((state) => state.createdPokemon);
   const dispatch = useDispatch();
   const MAX_TYPES = 2;
   const options = useSelector((state) => state.types);
@@ -103,10 +100,6 @@ const Create = () => {
       });
     }
   };
-
-  useEffect(() => {
-    dispatch(getTypes());
-  }, []);
 
   return (
     <div>

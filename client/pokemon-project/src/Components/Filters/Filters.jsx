@@ -1,11 +1,5 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  filterByPokemon,
-  filterByType,
-  getTypes,
-  resetSearchPokemon,
-} from "../../redux/actions";
+import { filterByPokemon, filterByType } from "../../redux/actions";
 import {
   ALL_POKEMONS,
   API_POKEMONS,
@@ -21,13 +15,7 @@ const Filters = () => {
 
   const onChangeTypes = (e) => {
     e.preventDefault();
-    dispatch(resetSearchPokemon());
-
     dispatch(filterByType(e.target.value));
-  };
-
-  const onClickTypes = () => {
-    dispatch(getTypes());
   };
 
   const onChangePokemons = (e) => {
@@ -46,7 +34,6 @@ const Filters = () => {
           className={style.filter_select}
           value={filterTypes}
           onChange={onChangeTypes}
-          onClick={onClickTypes}
         >
           <option value="ALL_TYPES">All Types</option>
           {types.map((type) => (

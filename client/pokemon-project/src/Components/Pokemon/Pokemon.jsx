@@ -1,5 +1,5 @@
-import { useState } from "react";
 import style from "./Pokemon.module.scss";
+import "./Pokemon.scss";
 
 const Pokemon = ({ name, image, image2, types, id }) => {
   return (
@@ -26,7 +26,7 @@ const Pokemon = ({ name, image, image2, types, id }) => {
           {types &&
             types.map((type, index) => {
               return (
-                <span className={style.types} key={index}>
+                <span className={type.name} key={index}>
                   {type.name}
                 </span>
               );

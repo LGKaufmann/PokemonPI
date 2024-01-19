@@ -22,13 +22,14 @@ const Home = () => {
   useEffect(() => {
     if (pokemons.length === 0) {
       dispatch(getPokemons());
+      dispatch(getTypes());
     }
   }, []);
 
   return (
     <div className={style.container}>
       <div className={style.title_container}>
-        <span className={style.title}>POKEMON API</span>
+        <span className={style.title}>POKEMON APP</span>
       </div>
       <div>
         <Order />

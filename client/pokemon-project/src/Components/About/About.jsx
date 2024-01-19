@@ -34,7 +34,7 @@ const About = () => {
             - Cada Card en la página de inicio muestra un Pokémon y al hacer
             clic en la misma puedes ver los detalles.
             <br />
-            - Ordenar alfabéticamente
+            - Ordenar alfabéticamente y por ataque.
             <br />
             - Crear un nuevo Pokémon llenando el formulario.
             <br />

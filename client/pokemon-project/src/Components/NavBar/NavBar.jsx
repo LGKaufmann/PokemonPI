@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
-import pikachu from "../../../assets/navbar-pikachu.gif";
 import raichu from "../../../assets/raichu.gif";
 import style from "./NavBar.module.scss";
 import SearchBar from "../SearchBar/SearchBar";

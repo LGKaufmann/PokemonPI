@@ -12,6 +12,7 @@ import {
   MODIFYPAGE,
   RESET_FILTER_ORDER,
   RESET_SEARCH_POKEMON,
+  SORT_ATTACK,
   SORT_NAME,
   TOPAGE,
 } from "./action-types";
@@ -31,6 +32,21 @@ export function getPokemons() {
   };
 }
 
+export function getPokemonById(id) {
+  return async function (dispatch) {
+    try {
+      const pokemonDetails = await axios.get(
+        `http://localhost:3001/pokemons/${id}`
+      );
+      return dispatch({
+        type: GETPOKEMONDETAILS,
+        payload: pokemonDetails.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 export function getTypes() {
   return function (dispatch) {
     axios
@@ -73,22 +89,6 @@ export function createPokemon(newPokemon) {
   };
 }
 
-export function getPokemonById(id) {
-  return async function (dispatch) {
-    try {
-      const pokemonDetails = await axios.get(
-        `http://localhost:3001/pokemons/${id}`
-      );
-      return dispatch({
-        type: GETPOKEMONDETAILS,
-        payload: pokemonDetails.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
 export function searchPokemon(name) {
   return async function (dispatch) {
     try {
@@ -116,6 +116,14 @@ export function resetSearchPokemon() {
 export function sortName(order) {
   return {
     type: SORT_NAME,
+    payload: order,
+  };
+}
+
+// order by ATTACK
+export function sortAttack(order) {
+  return {
+    type: SORT_ATTACK,
     payload: order,
   };
 }

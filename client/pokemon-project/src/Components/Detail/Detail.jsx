@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPokemonById } from "../../redux/actions";
+import { getPokemonById, resetSearchPokemon } from "../../redux/actions";
 import Pokemon from "../Pokemon/Pokemon";
 import style from "./Detail.module.scss";
 
@@ -9,9 +9,13 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const pokemonDetail = useSelector((state) => state.pokemonDetail);
+  const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
     dispatch(getPokemonById(id));
+    if (loading) {
+      dispatch(resetSearchPokemon());
+    }
   }, [id]);
   return (
     <div className={style.containerprin}>
@@ -72,9 +76,10 @@ const Detail = () => {
       ) : (
         // verificacion de que el pokemon este cargado para mostrarlo
         <>
-          <div className={style.container_loading}>
-            {/* <img src={imgLoading} alt="Loading..." /> */}
-            <h1>Loading...</h1>
+          <div>
+            <div className={style.container_loading}>
+              <h1>Loading...</h1>
+            </div>
           </div>
         </>
       )}

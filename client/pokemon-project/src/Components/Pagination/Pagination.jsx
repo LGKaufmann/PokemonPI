@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bottomPage, modifyPage, topPage } from "../../redux/actions";
 import style from "./Pagination.module.scss";

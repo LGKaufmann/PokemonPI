@@ -55,19 +55,6 @@
   margin-top: -20px;
 }
 
-.types {
-  font-size: 18px;
-  font-weight: bold;
-  color: whitesmoke;
-  text-decoration: none;
-  background: linear-gradient(to bottom right, gray, pink);
-  width: 100px;
-  text-align: center;
-  margin-right: 5px;
-  margin-left: 5px;
-  border: solid 1px black;
-  border-radius: 5px;
-}
 .card_container_title {
   display: flex;
   flex-direction: row;
@@ -77,8 +64,10 @@
 
 .card_title {
   font-size: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #000000;
   font-weight: bold;
-  color: wheat;
+  color: rgb(239, 235, 229);
   text-decoration: none;
   width: 20px;
   height: 20px;
