@@ -1,24 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
-const session = require('supertest-session');
-const app = require('../../src/app.js');
-const { Pokemon, conn } = require('../../src/db.js');
-
+const app = require("../../src/app");
+const session = require("supertest");
 const agent = session(app);
-const pokemon = {
-  name: 'Pikachu',
-};
 
-describe('Pokemon routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Pokemon.sync({ force: true })
-    .then(() => Pokemon.create(pokemon)));
-  describe('GET /pokemons', () => {
-    it('should get 200', () =>
-      agent.get('/pokemons').expect(200)
-    );
+describe("Test de RUTAS", () => {
+  describe("GET /pokemons/:id", () => {
+    it("Responde con status: 200", async () => {
+      await agent.get("/pokemons/1").expect(200);
+    });
+
+    it("Responde un objeto con las propiedades: 'id','name','image', 'image2' y 'types' ", async () => {
+      const response = (await agent.get("/pokemons/1")).body;
+      expect(response).toHaveProperty("id");
+      expect(response).toHaveProperty("name");
+      expect(response).toHaveProperty("image");
+      expect(response).toHaveProperty("image2");
+      expect(response).toHaveProperty("types");
+    });
   });
 });

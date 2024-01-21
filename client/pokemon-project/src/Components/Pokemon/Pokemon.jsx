@@ -13,15 +13,7 @@ const Pokemon = ({ name, image, image2, types, id }) => {
             <span></span>
           )}
         </div>
-        {image && (
-          <img
-            className={style.cover_image}
-            src={image}
-            alt={name}
-            width="300px"
-            height="300px"
-          />
-        )}
+        {image && <img className={style.cover_image} src={image} alt={name} />}
         <div className={style.container_types}>
           {types &&
             types.map((type, index) => {

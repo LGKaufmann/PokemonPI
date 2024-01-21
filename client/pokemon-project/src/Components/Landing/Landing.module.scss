@@ -7,6 +7,25 @@
   background: url("../../../assets/paisaje2.jpg") no-repeat center top;
   background-size: cover;
   padding-top: 60px;
+
+  @include sm {
+    background: linear-gradient(
+      to bottom right,
+      rgb(170, 97, 186),
+      rgb(206, 156, 86)
+    );
+  }
+}
+
+.pokemon_image {
+  @include sm {
+    width: 300px;
+    height: 180px;
+  }
+  @include md {
+    width: 600px;
+    height: 300px;
+  }
 }
 
 .container3 {
@@ -24,6 +43,10 @@
   color: lightyellow;
   border-bottom: 3px solid yellow;
   border-radius: 6px;
+
+  @include sm {
+    font-size: 1.5rem;
+  }
 }
 
 .container4 {

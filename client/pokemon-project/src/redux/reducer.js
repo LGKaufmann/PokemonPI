@@ -197,8 +197,8 @@ function rootReducer(state = initialState, action) {
       let back = filterAll(state.filterTypes, action.payload);
       return {
         ...state,
-        filterPokemons: action.payload,
         filteredPokemons: back,
+        filterPokemons: action.payload,
         totalPokemons: back.length,
         currentPage: 1,
       };

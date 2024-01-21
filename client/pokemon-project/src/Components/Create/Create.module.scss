@@ -9,6 +9,20 @@
   background: url("../../../assets/pokedex.png");
   background-size: cover;
   padding-top: 140px;
+
+  @include sm {
+    flex-direction: column;
+    background: linear-gradient(to top right, lightblue, wheat);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  @include md {
+    background: linear-gradient(to top right, lightblue, wheat);
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+  }
 }
 
 .container {
@@ -23,6 +37,18 @@
   -webkit-border-radius: 50px 0px 65px 0px;
   border: 10px solid #f20e0e;
   margin-right: 300px;
+
+  @include sm {
+    margin-left: 18px;
+    padding: 8px 0px;
+    width: 360px;
+    border: 3px solid #f20e0e;
+  }
+
+  @include md {
+    margin: 0;
+    border: 3px solid black;
+  }
 }
 
 .itemContainer {
@@ -54,6 +80,11 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
+
+  @include sm {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
 .containerPreview {
@@ -69,6 +100,13 @@
   -moz-border-radius: 50px 0px 65px 0px;
   -webkit-border-radius: 0px 30px 65px 0px;
   border: 10px solid #f20e0e;
+
+  @include sm {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 320px;
+    height: 450px;
+  }
 }
 
 .containerPreview_Card {
@@ -78,6 +116,11 @@
 
   margin-top: 60px;
   margin-left: -10px;
+
+  @include sm {
+    margin-left: 0px;
+    height: 200px;
+  }
 }
 
 .containerErrorTypes {
@@ -156,6 +199,11 @@
   margin: 10px;
   margin-top: 0px;
   padding-left: 10px;
+
+  @include sm {
+    width: 200px;
+    margin: 0;
+  }
 }
 
 .inputShort {
@@ -173,6 +221,11 @@
   margin: 10px;
   margin-top: 0px;
   padding-left: 10px;
+
+  @include sm {
+    width: 30px;
+    margin: 0;
+  }
 }
 
 .errors {
@@ -192,6 +245,11 @@
   font-family: "VT323", monospace;
   font-size: 12px;
   color: rgb(248, 248, 193);
+
+  @include sm {
+    text-align: center;
+    width: 45px;
+  }
 }
 
 .types_select {
@@ -207,6 +265,11 @@
   width: 130px;
   height: 35px;
   margin-left: 10px;
+
+  @include sm {
+    font-size: 12px;
+    width: 100px;
+  }
 }
 
 .text_error_form {
@@ -216,6 +279,10 @@
   font-size: 16px;
   color: white;
   margin-bottom: 14px;
+
+  @include sm {
+    font-size: 12px;
+  }
 }
 
 .button_delete {
@@ -236,6 +303,11 @@
   margin: 3px;
   text-decoration: none;
   text-shadow: 0px 0px 0px #8a3e4b;
+
+  @include sm {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .button_delete:hover {
@@ -266,6 +338,11 @@
   padding: 6px 10px;
   text-decoration: none;
   text-shadow: 0px 0px 0px #8a3e4b;
+
+  @include sm {
+    padding: 0px 0px;
+    font-size: 12px;
+  }
 }
 
 .button_create:hover {
@@ -286,6 +363,10 @@
   font-weight: bold;
   font-size: 14px;
   color: rgb(248, 248, 193);
+
+  @include sm {
+    font-size: 10px;
+  }
 }
 
 .typesError {
@@ -295,6 +376,11 @@
   font-weight: bold;
   font-size: 14px;
   color: rgb(248, 248, 193);
+
+  @include sm {
+    font-size: 10px;
+    border: 3px solid blue;
+  }
 }
 
 .rangeForm {
@@ -319,6 +405,11 @@
   font-size: 16px;
   margin-left: 25px;
   margin-top: 0px;
+
+  @include sm {
+    font-size: 12px;
+    border: 3px solid blue;
+  }
 }
 
 .labelRangeNumber {
@@ -330,4 +421,9 @@
   text-shadow: black 0.1em 0.1em 0.2em;
   margin-right: 40px;
   margin-top: 0px;
+
+  @include sm {
+    font-size: 14px;
+    margin-right: 25px;
+  }
 }

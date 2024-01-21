@@ -1,21 +1,30 @@
-const { Pokemon, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+const { Pokemon, conn } = require("../../src/db.js");
 
-describe('Pokemon model', () => {
-  before(() => conn.authenticate()
-    .catch((err) => {
-      console.error('Unable to connect to the database:', err);
-    }));
-  describe('Validators', () => {
+describe("Modelo de Pokémon", () => {
+  beforeAll(() =>
+    conn.authenticate().catch((err) => {
+      console.error("No se pudo conectar a la base de datos:", err);
+    })
+  );
+
+  describe("Validadores", () => {
     beforeEach(() => Pokemon.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
-        Pokemon.create({})
-          .then(() => done(new Error('It requires a valid name')))
-          .catch(() => done());
+
+    describe("nombre", () => {
+      it("debería lanzar un error si el nombre es nulo", async () => {
+        expect.assertions(1);
+        try {
+          await Pokemon.create({});
+        } catch (error) {
+          expect(error.message).toBe(
+            "notNull Violation: pokemon.name cannot be null"
+          );
+        }
       });
-      it('should work when its a valid name', () => {
-        Pokemon.create({ name: 'Pikachu' });
+
+      it("debería funcionar cuando tiene un nombre válido", async () => {
+        const pokemon = await Pokemon.create({ name: "Pikachu" });
+        expect(pokemon.name).toBe("Pikachu");
       });
     });
   });

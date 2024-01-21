@@ -6,6 +6,7 @@ const Landing = () => {
     <div className={style.container}>
       <div className={style.container2}>
         <img
+          className={style.pokemon_image}
           src="../assets/pokemon.png"
           alt="pokemon"
           width="720px"

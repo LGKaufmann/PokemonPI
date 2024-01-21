@@ -11,7 +11,7 @@ const About = () => {
   return (
     <div>
       <div className={style.container_about}>
-        <div className={style.conteiner}>
+        <div className={style.conteiner_title}>
           <p className={style.title}>APP POKEMON</p>
         </div>
         <div className={style.conteiner}>

@@ -10,9 +10,9 @@ import Pagination from "../Pagination/Pagination";
 const Home = () => {
   const pokemons = useSelector((state) => state.filteredPokemons);
   const dispatch = useDispatch();
-  const currentPage = parseInt(useSelector((state) => state.currentPage));
-  const itemsByPage = parseInt(useSelector((state) => state.itemsByPage));
-  const totalPokemons = parseInt(useSelector((state) => state.totalPokemons));
+  const currentPage = useSelector((state) => state.currentPage);
+  const itemsByPage = useSelector((state) => state.itemsByPage);
+  const totalPokemons = useSelector((state) => state.totalPokemons);
 
   let start = (currentPage - 1) * itemsByPage;
   let end = start + itemsByPage;
@@ -38,7 +38,11 @@ const Home = () => {
         {pokemons
           .map((pokemon) => {
             return (
-              <Link to={`/detail/${pokemon.id}`} key={pokemon.id}>
+              <Link
+                className={style.link}
+                to={`/detail/${pokemon.id}`}
+                key={pokemon.id}
+              >
                 <Pokemon
                   id={pokemon.id}
                   name={pokemon.name}

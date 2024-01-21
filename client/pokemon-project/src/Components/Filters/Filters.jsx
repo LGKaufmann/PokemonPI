@@ -14,12 +14,10 @@ const Filters = () => {
   const dispatch = useDispatch();
 
   const onChangeTypes = (e) => {
-    e.preventDefault();
     dispatch(filterByType(e.target.value));
   };
 
   const onChangePokemons = (e) => {
-    e.preventDefault();
     dispatch(filterByPokemon(e.target.value));
   };
 

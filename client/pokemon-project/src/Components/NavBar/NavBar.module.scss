@@ -10,6 +10,14 @@
   border-bottom: 4px solid wheat;
   width: 100%;
   height: 100px;
+
+  @include sm {
+    height: 250px;
+  }
+
+  @include md {
+    height: 200px;
+  }
 }
 
 .nav_conteiner {
@@ -18,39 +26,99 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
   flex-wrap: wrap;
+
+  @include sm {
+    width: 90%;
+  }
+
+  @include md {
+    justify-content: space-around;
+    width: 98%;
+  }
 }
 
 .nav_menu_izquierda {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  gap: 60px;
   align-items: center;
-  width: 49%;
+  width: 54%;
   flex-wrap: wrap;
+
+  @include sm {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+  }
+
+  @include md {
+    justify-content: center;
+    width: 45%;
+    gap: 0;
+    margin-top: 0px;
+  }
 }
 
 .nav_menu_derecha {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 45%;
   flex-wrap: wrap;
+
+  @include sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+  }
+
+  @include md {
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+  }
 }
 
 .searchbar {
-  margin-right: 400px;
+  margin-right: 90px;
+
+  @include sm {
+    margin-right: 0;
+    margin-left: 0px;
+  }
+
+  @include md {
+    margin-right: 0;
+  }
 }
 
 .nav_bar_logo {
   width: 60px;
   height: 60px;
   margin-left: 13px;
-  margin-right: 300px;
+  margin-right: 100px;
   margin-top: 5px;
   background: inherit;
   transition: all 0.3s;
+
+  @include sm {
+    margin: 0;
+  }
+
+  @include md {
+    margin: 0;
+  }
 }
 
 .nav_bar_logo:hover {
@@ -70,6 +138,15 @@
   width: 100px;
   height: 100px;
   margin-bottom: 8px;
+
+  @include sm {
+    width: 0;
+    height: 0;
+  }
+  @include md {
+    width: 0;
+    height: 0;
+  }
 }
 
 .menu {
@@ -81,6 +158,15 @@
   border-radius: 11px;
   margin-right: 14px;
   margin-top: 10px;
+
+  @include sm {
+    margin: 0;
+  }
+
+  @include md {
+    margin: 0;
+    margin-left: 20px;
+  }
 }
 
 .menu ul,

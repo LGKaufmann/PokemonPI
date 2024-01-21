@@ -6,19 +6,19 @@ const Pagination = () => {
   const currentPage = useSelector((state) => state.currentPage);
   const dispatch = useDispatch();
 
-  function backPage(e) {
+  function backPage() {
     dispatch(modifyPage(-1));
   }
 
-  function nextPage(e) {
+  function nextPage() {
     dispatch(modifyPage(1));
   }
 
-  function onTopPage(e) {
+  function onTopPage() {
     dispatch(topPage());
   }
 
-  function onBottomPage(e) {
+  function onBottomPage() {
     dispatch(bottomPage());
   }
 

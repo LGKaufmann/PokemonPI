@@ -9,7 +9,6 @@ const OrderByName = () => {
   const dispatch = useDispatch();
 
   const onClick = (e) => {
-    e.preventDefault();
     let valor = e.target.value;
     dispatch(sortName(valor));
   };

@@ -8,6 +8,10 @@
   padding: 10px;
   width: 600px;
   margin-top: 20px;
+
+  @include sm {
+    width: 330px;
+  }
 }
 
 .container_imagen {
@@ -15,6 +19,12 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+
+  @include sm {
+    margin-top: 10px;
+
+    padding-bottom: 10px;
+  }
 }
 
 .image_tecnologias {
@@ -33,11 +43,26 @@
   align-content: center;
   align-items: center;
   background: linear-gradient(to top right, lightblue, wheat);
+
+  @include sm {
+    flex-wrap: nowrap;
+    padding: 100px;
+  }
 }
 
 .conteiner {
   width: 600px;
   text-align: center;
+
+  @include sm {
+    width: 350px;
+    height: 380px;
+  }
+}
+
+.conteiner_title {
+  text-align: center;
+  width: 380px;
 }
 
 .title {
@@ -48,6 +73,12 @@
   text-align: center;
   padding: 5px 0px 5px 10px;
   color: hsl(0, 0%, 0%);
+
+  @include sm {
+    font-size: 1rem;
+
+    padding: 0;
+  }
 }
 
 .parrafo {
@@ -57,8 +88,16 @@
   font-family: "VT323", monospace;
   padding: 0px 0px 5px 10px;
   color: hsl(0, 0%, 0%);
+
+  @include sm {
+    padding: 0;
+  }
 }
 
 .developer {
   border-radius: 5px;
+  @include sm {
+    width: 200px;
+    height: 200px;
+  }
 }

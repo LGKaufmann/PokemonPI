@@ -7,8 +7,7 @@ import style from "./OrderNone.module.scss";
 const OrderNone = () => {
   const dispatch = useDispatch();
 
-  const onClick = (e) => {
-    e.preventDefault();
+  const onClick = () => {
     dispatch(resetFilterOrder());
   };
   return (
